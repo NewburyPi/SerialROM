@@ -1,7 +1,7 @@
 // Controls proper inclusion
-#ifndef TowWire_h
+//#ifndef TowWire_h
 #include <Wire.h>
-#endif
+//#endif
 
 #ifndef _Serial_ROM_
 #define _Serial_ROM_
@@ -16,7 +16,7 @@ class SerialROM  {
   public: // define to make method available
   
     // Constructor 
-    SerialROM( int8_t I2C_Address, bool displayMsg=false);
+    SerialROM( uint8_t I2C_Address, bool displayMsg=false);
 
     // Methods
     void begin(uint16_t baudRate);
@@ -24,7 +24,7 @@ class SerialROM  {
     void  read(uint16_t start_address, uint8_t *data, uint16_t dataSize);
 
   private:  // define to hide these methods
+    uint8_t _I2C_addr;
     bool _msg;
-    int8_t _I2C_addr;
 };
 #endif

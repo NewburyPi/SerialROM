@@ -25,8 +25,7 @@ void loop() {
   for(uint16_t i = 0; i < DATA_BLOCK_SIZE; i++){  // create an array of random number test data
     dataToBeWriten[i] = random(255);      
   }
-  Serial.println("Write data prepped");
-  Serial.println("");
+  Serial.println("Write data prepped\n");
 
   for(uint16_t i = 0; i < DATA_BLOCK_SIZE; i++){  // create an array of random number test data
     if ((i)%8 == 0) {
@@ -40,12 +39,9 @@ void loop() {
       Serial.println(i+1+START_ADDRESS);
     }
   }
-  Serial.println("");
-  Serial.println("");
-
+ 
   mem.write(START_ADDRESS, dataToBeWriten, sizeof(dataToBeWriten));  // write test data into the EEPROM
-  Serial.println("Test data has been writen to the EEPROM");
-  Serial.println("");
+  Serial.println("\n\nTest data has been writen to the EEPROM\n");
 
 //  ****  UNCOMMENT BELOW TO VERIFY ERROR CAPTURE  ****
 //  for(uint16_t i = 0; i < 5; i++){  // create an array of random number test data
@@ -55,11 +51,9 @@ void loop() {
 
 
   mem.read(START_ADDRESS, dataReadBack, sizeof(dataToBeWriten));  // write test data into the EEPROM
-  Serial.println("Test data has been read back from the EEPROM");
+  Serial.print("Test data has been read back from the EEPROM\n\n");
 
-  Serial.println("");
-  Serial.println("Data as read.");
-  Serial.println("");
+  Serial.println("\n Data as read.\n");
   
   for(uint16_t i = 0; i < DATA_BLOCK_SIZE; i++){  // create an array of random number test data
     if ((i)%8 == 0) {

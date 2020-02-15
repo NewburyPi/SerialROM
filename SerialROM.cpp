@@ -4,10 +4,8 @@
 
 #include "SerialROM.h"  // call to the include file
 
-SerialROM::SerialROM(int8_t I2C_Address, bool displayMsg) { // Constructor
-  _I2C_addr = I2C_Address;  // capture the I2C address
-  _msg = displayMsg;
-}
+SerialROM::SerialROM(uint8_t I2C_Address, bool displayMsg)  // Constructor
+  : _I2C_addr(I2C_Address),  _msg(displayMsg) { }
 
 void SerialROM::begin(uint16_t baudRate) {// this is our 'begin' public method
   Serial.begin(baudRate);
@@ -65,7 +63,7 @@ void SerialROM::read(uint16_t start_address, uint8_t *data, uint16_t dataSize) {
     byteIndex++;
     numberOfBytes--;
     
-    for (int i=0; i < bytesLeft-1; i++) {  // get rest of bytes
+    for (uint8_t i=0; i < bytesLeft-1; i++) {  // get rest of bytes
       data[byteIndex] = Wire.read();              
       numberOfBytes--;
       byteIndex++;             
