@@ -22,8 +22,8 @@ The .begin method, is not absolutely required. It is used to allow the passing o
 
 The Serial EEPROM Controller library provides two methods .write and .read. For each the user supplies the starting memory address within the chip, a pointer to the data byte array, and the size of the array to be writen or read. 
 
-       <object>.write( <start address>, <data array>, sizeof(<data array> );
-       <object>.read(<start address>, <data array>, sizeof(<data array> );
+       <object>.write( <start address>, <data array>, sizeof(<data array>) );
+       <object>.read(<start address>, <data array>, sizeof(<data array>) );
 
 
 
